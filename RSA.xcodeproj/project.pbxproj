@@ -7,12 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08C7539D2F1F741FC618DC71 /* Pods_RSATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F503F2B7369D4BC03F2D197C /* Pods_RSATests.framework */; };
 		A2ABFB071EDEEAE800BF4B34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB061EDEEAE800BF4B34 /* AppDelegate.swift */; };
 		A2ABFB091EDEEAE800BF4B34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB081EDEEAE800BF4B34 /* ViewController.swift */; };
 		A2ABFB0C1EDEEAE800BF4B34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB0A1EDEEAE800BF4B34 /* Main.storyboard */; };
 		A2ABFB0E1EDEEAE800BF4B34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB0D1EDEEAE800BF4B34 /* Assets.xcassets */; };
 		A2ABFB111EDEEAE800BF4B34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB0F1EDEEAE800BF4B34 /* LaunchScreen.storyboard */; };
 		A2ABFB1C1EDEEAE900BF4B34 /* RSATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB1B1EDEEAE900BF4B34 /* RSATests.swift */; };
+		A2ABFB291EDEEB3800BF4B34 /* NSData+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB281EDEEB3800BF4B34 /* NSData+SHA.m */; };
+		A2ABFB2B1EDEEE6D00BF4B34 /* CryptRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB2A1EDEEE6D00BF4B34 /* CryptRSA.swift */; };
+		A2ABFB2D1EDEF34200BF4B34 /* SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB2C1EDEF34200BF4B34 /* SHA.swift */; };
+		A2ABFB2F1EE17F8C00BF4B34 /* PBHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB2E1EE17F8B00BF4B34 /* PBHex.swift */; };
+		A2ABFB551EE2DE5900BF4B34 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB541EE2DE5900BF4B34 /* Key.swift */; };
+		A2ABFB571EE2DF2A00BF4B34 /* SwiftyRSAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB561EE2DF2A00BF4B34 /* SwiftyRSAError.swift */; };
+		A2ABFB591EE2E0EB00BF4B34 /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB581EE2E0EB00BF4B34 /* SwiftyRSA.swift */; };
+		A2ABFB5B1EE2E35F00BF4B34 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB5A1EE2E35F00BF4B34 /* Asn1Parser.swift */; };
+		A2ABFB5D1EE2E68400BF4B34 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB5C1EE2E68400BF4B34 /* ClearMessage.swift */; };
+		A2ABFB5F1EE2E6E800BF4B34 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB5E1EE2E6E800BF4B34 /* Message.swift */; };
+		A2ABFB611EE2E75100BF4B34 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB601EE2E75100BF4B34 /* PrivateKey.swift */; };
+		A2ABFB631EE2E76B00BF4B34 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB621EE2E76B00BF4B34 /* PublicKey.swift */; };
+		A2ABFB651EE2E79800BF4B34 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB641EE2E79800BF4B34 /* Signature.swift */; };
+		A2ABFB671EE2EE2B00BF4B34 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB661EE2EE2B00BF4B34 /* EncryptedMessage.swift */; };
+		A2ABFB6E1EEB5C4500BF4B34 /* encrypted_msg.bin in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB681EEB5AD000BF4B34 /* encrypted_msg.bin */; };
+		A2ABFB6F1EEB5C4800BF4B34 /* private-key.pem in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB691EEB5AD000BF4B34 /* private-key.pem */; };
+		A2ABFB701EEB5C4B00BF4B34 /* public-key.pem in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB6A1EEB5AD000BF4B34 /* public-key.pem */; };
+		A2DAD2771EFDDD9200F68AD0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DAD2761EFDDD9200F68AD0 /* Security.framework */; };
+		E4F22D5E317FC4E0B4D9AEC1 /* Pods_RSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44400821CB63E28173FA1037 /* Pods_RSA.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,7 +45,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A2ABFB921EEB708800BF4B34 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		180D2387344CC8F9CBD2B3AC /* Pods-RSATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSATests/Pods-RSATests.debug.xcconfig"; sourceTree = "<group>"; };
+		44400821CB63E28173FA1037 /* Pods_RSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2ABFB031EDEEAE800BF4B34 /* RSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2ABFB061EDEEAE800BF4B34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2ABFB081EDEEAE800BF4B34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +71,34 @@
 		A2ABFB171EDEEAE900BF4B34 /* RSATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2ABFB1B1EDEEAE900BF4B34 /* RSATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSATests.swift; sourceTree = "<group>"; };
 		A2ABFB1D1EDEEAE900BF4B34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2ABFB261EDEEB3800BF4B34 /* RSA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSA-Bridging-Header.h"; sourceTree = "<group>"; };
+		A2ABFB271EDEEB3800BF4B34 /* NSData+SHA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA.h"; sourceTree = "<group>"; };
+		A2ABFB281EDEEB3800BF4B34 /* NSData+SHA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA.m"; sourceTree = "<group>"; };
+		A2ABFB2A1EDEEE6D00BF4B34 /* CryptRSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptRSA.swift; sourceTree = "<group>"; };
+		A2ABFB2C1EDEF34200BF4B34 /* SHA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA.swift; sourceTree = "<group>"; };
+		A2ABFB2E1EE17F8B00BF4B34 /* PBHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBHex.swift; sourceTree = "<group>"; };
+		A2ABFB541EE2DE5900BF4B34 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		A2ABFB561EE2DF2A00BF4B34 /* SwiftyRSAError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRSAError.swift; sourceTree = "<group>"; };
+		A2ABFB581EE2E0EB00BF4B34 /* SwiftyRSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRSA.swift; sourceTree = "<group>"; };
+		A2ABFB5A1EE2E35F00BF4B34 /* Asn1Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asn1Parser.swift; sourceTree = "<group>"; };
+		A2ABFB5C1EE2E68400BF4B34 /* ClearMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearMessage.swift; sourceTree = "<group>"; };
+		A2ABFB5E1EE2E6E800BF4B34 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A2ABFB601EE2E75100BF4B34 /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		A2ABFB621EE2E76B00BF4B34 /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
+		A2ABFB641EE2E79800BF4B34 /* Signature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
+		A2ABFB661EE2EE2B00BF4B34 /* EncryptedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptedMessage.swift; sourceTree = "<group>"; };
+		A2ABFB681EEB5AD000BF4B34 /* encrypted_msg.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = encrypted_msg.bin; sourceTree = "<group>"; };
+		A2ABFB691EEB5AD000BF4B34 /* private-key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "private-key.pem"; sourceTree = "<group>"; };
+		A2ABFB6A1EEB5AD000BF4B34 /* public-key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "public-key.pem"; sourceTree = "<group>"; };
+		A2ABFB7E1EEB708700BF4B34 /* RSAmacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAmacOS.h; sourceTree = "<group>"; };
+		A2ABFB7F1EEB708700BF4B34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2ABFB8B1EEB708800BF4B34 /* RSAmacOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAmacOSTests.swift; sourceTree = "<group>"; };
+		A2ABFB8D1EEB708800BF4B34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2DAD2761EFDDD9200F68AD0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B6A051541FF109702F5307D9 /* Pods-RSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSA/Pods-RSA.debug.xcconfig"; sourceTree = "<group>"; };
+		DCC40B0744A0488EF8F972FD /* Pods-RSATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSATests/Pods-RSATests.release.xcconfig"; sourceTree = "<group>"; };
+		F503F2B7369D4BC03F2D197C /* Pods_RSATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF1AB1C1B24142BE8306CD6B /* Pods-RSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSA.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSA/Pods-RSA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2DAD2771EFDDD9200F68AD0 /* Security.framework in Frameworks */,
+				E4F22D5E317FC4E0B4D9AEC1 /* Pods_RSA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +115,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C7539D2F1F741FC618DC71 /* Pods_RSATests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		306761547F16CE7196AD0193 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6A051541FF109702F5307D9 /* Pods-RSA.debug.xcconfig */,
+				FF1AB1C1B24142BE8306CD6B /* Pods-RSA.release.xcconfig */,
+				180D2387344CC8F9CBD2B3AC /* Pods-RSATests.debug.xcconfig */,
+				DCC40B0744A0488EF8F972FD /* Pods-RSATests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A2ABFAFA1EDEEAE800BF4B34 = {
 			isa = PBXGroup;
 			children = (
 				A2ABFB051EDEEAE800BF4B34 /* RSA */,
 				A2ABFB1A1EDEEAE900BF4B34 /* RSATests */,
+				A2ABFB7D1EEB708700BF4B34 /* RSAmacOS */,
+				A2ABFB8A1EEB708800BF4B34 /* RSAmacOSTests */,
 				A2ABFB041EDEEAE800BF4B34 /* Products */,
+				A2ABFB331EE2814900BF4B34 /* Frameworks */,
+				306761547F16CE7196AD0193 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +158,29 @@
 		A2ABFB051EDEEAE800BF4B34 /* RSA */ = {
 			isa = PBXGroup;
 			children = (
+				A2ABFB761EEB6BF600BF4B34 /* key */,
 				A2ABFB061EDEEAE800BF4B34 /* AppDelegate.swift */,
-				A2ABFB081EDEEAE800BF4B34 /* ViewController.swift */,
-				A2ABFB0A1EDEEAE800BF4B34 /* Main.storyboard */,
+				A2ABFB5A1EE2E35F00BF4B34 /* Asn1Parser.swift */,
 				A2ABFB0D1EDEEAE800BF4B34 /* Assets.xcassets */,
-				A2ABFB0F1EDEEAE800BF4B34 /* LaunchScreen.storyboard */,
+				A2ABFB5C1EE2E68400BF4B34 /* ClearMessage.swift */,
+				A2ABFB2A1EDEEE6D00BF4B34 /* CryptRSA.swift */,
+				A2ABFB661EE2EE2B00BF4B34 /* EncryptedMessage.swift */,
 				A2ABFB121EDEEAE800BF4B34 /* Info.plist */,
+				A2ABFB541EE2DE5900BF4B34 /* Key.swift */,
+				A2ABFB0F1EDEEAE800BF4B34 /* LaunchScreen.storyboard */,
+				A2ABFB0A1EDEEAE800BF4B34 /* Main.storyboard */,
+				A2ABFB5E1EE2E6E800BF4B34 /* Message.swift */,
+				A2ABFB271EDEEB3800BF4B34 /* NSData+SHA.h */,
+				A2ABFB281EDEEB3800BF4B34 /* NSData+SHA.m */,
+				A2ABFB2E1EE17F8B00BF4B34 /* PBHex.swift */,
+				A2ABFB601EE2E75100BF4B34 /* PrivateKey.swift */,
+				A2ABFB621EE2E76B00BF4B34 /* PublicKey.swift */,
+				A2ABFB261EDEEB3800BF4B34 /* RSA-Bridging-Header.h */,
+				A2ABFB2C1EDEF34200BF4B34 /* SHA.swift */,
+				A2ABFB641EE2E79800BF4B34 /* Signature.swift */,
+				A2ABFB581EE2E0EB00BF4B34 /* SwiftyRSA.swift */,
+				A2ABFB561EE2DF2A00BF4B34 /* SwiftyRSAError.swift */,
+				A2ABFB081EDEEAE800BF4B34 /* ViewController.swift */,
 			);
 			path = RSA;
 			sourceTree = "<group>";
@@ -96,6 +194,44 @@
 			path = RSATests;
 			sourceTree = "<group>";
 		};
+		A2ABFB331EE2814900BF4B34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2DAD2761EFDDD9200F68AD0 /* Security.framework */,
+				44400821CB63E28173FA1037 /* Pods_RSA.framework */,
+				F503F2B7369D4BC03F2D197C /* Pods_RSATests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2ABFB761EEB6BF600BF4B34 /* key */ = {
+			isa = PBXGroup;
+			children = (
+				A2ABFB681EEB5AD000BF4B34 /* encrypted_msg.bin */,
+				A2ABFB691EEB5AD000BF4B34 /* private-key.pem */,
+				A2ABFB6A1EEB5AD000BF4B34 /* public-key.pem */,
+			);
+			name = key;
+			sourceTree = "<group>";
+		};
+		A2ABFB7D1EEB708700BF4B34 /* RSAmacOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2ABFB7E1EEB708700BF4B34 /* RSAmacOS.h */,
+				A2ABFB7F1EEB708700BF4B34 /* Info.plist */,
+			);
+			path = RSAmacOS;
+			sourceTree = "<group>";
+		};
+		A2ABFB8A1EEB708800BF4B34 /* RSAmacOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2ABFB8B1EEB708800BF4B34 /* RSAmacOSTests.swift */,
+				A2ABFB8D1EEB708800BF4B34 /* Info.plist */,
+			);
+			path = RSAmacOSTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +239,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2ABFB201EDEEAE900BF4B34 /* Build configuration list for PBXNativeTarget "RSA" */;
 			buildPhases = (
+				9E6FAD2BEAFC8B406C624D47 /* [CP] Check Pods Manifest.lock */,
 				A2ABFAFF1EDEEAE800BF4B34 /* Sources */,
 				A2ABFB001EDEEAE800BF4B34 /* Frameworks */,
 				A2ABFB011EDEEAE800BF4B34 /* Resources */,
+				30ACF2D14EC958AFB41EB1DE /* [CP] Embed Pods Frameworks */,
+				2A1B331B666D06250B4AE2C0 /* [CP] Copy Pods Resources */,
+				A2ABFB921EEB708800BF4B34 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,9 +260,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2ABFB231EDEEAE900BF4B34 /* Build configuration list for PBXNativeTarget "RSATests" */;
 			buildPhases = (
+				2B6D3BD294B87EEB692BB99C /* [CP] Check Pods Manifest.lock */,
 				A2ABFB131EDEEAE900BF4B34 /* Sources */,
 				A2ABFB141EDEEAE900BF4B34 /* Frameworks */,
 				A2ABFB151EDEEAE900BF4B34 /* Resources */,
+				3716B5A989A7D7C707BCBFB3 /* [CP] Embed Pods Frameworks */,
+				90A07ABBEDCBE4D5D5E96348 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +289,8 @@
 				TargetAttributes = {
 					A2ABFB021EDEEAE800BF4B34 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = WAXDS76BRK;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					A2ABFB161EDEEAE900BF4B34 = {
@@ -189,18 +334,128 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2ABFB6F1EEB5C4800BF4B34 /* private-key.pem in Resources */,
+				A2ABFB701EEB5C4B00BF4B34 /* public-key.pem in Resources */,
+				A2ABFB6E1EEB5C4500BF4B34 /* encrypted_msg.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A1B331B666D06250B4AE2C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSA/Pods-RSA-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B6D3BD294B87EEB692BB99C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		30ACF2D14EC958AFB41EB1DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSA/Pods-RSA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3716B5A989A7D7C707BCBFB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSATests/Pods-RSATests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90A07ABBEDCBE4D5D5E96348 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSATests/Pods-RSATests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E6FAD2BEAFC8B406C624D47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2ABFAFF1EDEEAE800BF4B34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2ABFB631EE2E76B00BF4B34 /* PublicKey.swift in Sources */,
+				A2ABFB551EE2DE5900BF4B34 /* Key.swift in Sources */,
 				A2ABFB091EDEEAE800BF4B34 /* ViewController.swift in Sources */,
+				A2ABFB651EE2E79800BF4B34 /* Signature.swift in Sources */,
+				A2ABFB671EE2EE2B00BF4B34 /* EncryptedMessage.swift in Sources */,
+				A2ABFB2F1EE17F8C00BF4B34 /* PBHex.swift in Sources */,
+				A2ABFB2D1EDEF34200BF4B34 /* SHA.swift in Sources */,
+				A2ABFB2B1EDEEE6D00BF4B34 /* CryptRSA.swift in Sources */,
+				A2ABFB5B1EE2E35F00BF4B34 /* Asn1Parser.swift in Sources */,
+				A2ABFB591EE2E0EB00BF4B34 /* SwiftyRSA.swift in Sources */,
+				A2ABFB571EE2DF2A00BF4B34 /* SwiftyRSAError.swift in Sources */,
 				A2ABFB071EDEEAE800BF4B34 /* AppDelegate.swift in Sources */,
+				A2ABFB5F1EE2E6E800BF4B34 /* Message.swift in Sources */,
+				A2ABFB291EDEEB3800BF4B34 /* NSData+SHA.m in Sources */,
+				A2ABFB5D1EE2E68400BF4B34 /* ClearMessage.swift in Sources */,
+				A2ABFB611EE2E75100BF4B34 /* PrivateKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,30 +592,42 @@
 		};
 		A2ABFB211EDEEAE900BF4B34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A051541FF109702F5307D9 /* Pods-RSA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = WAXDS76BRK;
 				INFOPLIST_FILE = RSA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pebble8888.RSA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSA/RSA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A2ABFB221EDEEAE900BF4B34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF1AB1C1B24142BE8306CD6B /* Pods-RSA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = WAXDS76BRK;
 				INFOPLIST_FILE = RSA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pebble8888.RSA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSA/RSA-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		A2ABFB241EDEEAE900BF4B34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 180D2387344CC8F9CBD2B3AC /* Pods-RSATests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -375,6 +642,7 @@
 		};
 		A2ABFB251EDEEAE900BF4B34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC40B0744A0488EF8F972FD /* Pods-RSATests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -406,6 +674,7 @@
 				A2ABFB221EDEEAE900BF4B34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2ABFB231EDEEAE900BF4B34 /* Build configuration list for PBXNativeTarget "RSATests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +683,7 @@
 				A2ABFB251EDEEAE900BF4B34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

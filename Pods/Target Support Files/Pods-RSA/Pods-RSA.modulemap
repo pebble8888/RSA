@@ -1,0 +1,6 @@
+framework module Pods_RSA {
+  umbrella header "Pods-RSA-umbrella.h"
+
+  export *
+  module * { export * }
+}
