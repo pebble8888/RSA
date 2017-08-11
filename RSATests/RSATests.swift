@@ -26,7 +26,7 @@ class RSATests: XCTestCase {
             return XCTFail()
         }
         let str = try String(contentsOf: URL(fileURLWithPath: path), encoding: .utf8)
-        let privateKey = try PrivateKey(pemEncoded: str)
+        let privateKey = try PrivateRSAKey(pemEncoded: str)
     }
     
     func test_PKCS1_OAEP_MGF() {

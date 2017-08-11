@@ -36,13 +36,13 @@ public class PrivateRSAKey: RSAKey {
     /// - Throws: SwiftyRSAError
     required public init(data: Data) throws {
         self.originalData = data
-        //let tag = UUID().uuidString
-        //self.tag = tag
         
-        print("\(data.hexDescription())")
-        // ASNパースした結果
-        let dataWithoutHeader = try SwiftyRSA.stripKeyHeader(keyData: data)
-        //print("\(dataWithoutHeader.hexDescription())")
+        print("data:\n\(data.hexDescription())\n")
+        //let dataWithoutHeader = try SwiftyRSA.stripKeyHeader(keyData: data)
+        //print("dataWithoutHeader:\n\(dataWithoutHeader.hexDescription())\n")
+        
+        let node = try Asn1Parser.parse(data: data)
+        print("\(node)")
         // TODO:
         //reference = try SwiftyRSA.addKey(dataWithoutHeader, isPublic: false, tag: tag)
     }

@@ -118,13 +118,29 @@ private extension Data {
 enum Asn1Parser {
     
     /// An ASN1 node
-    enum Node {
+    enum Node : CustomStringConvertible {
         case sequence(nodes: [Node])
         case integer(data: Data)
         case objectIdentifier(data: Data)
         case null
         case bitString(data: Data)
         case octetString(data: Data)
+        var description: String {
+            switch self {
+            case .sequence(let nodes):
+                return nodes.map({"\($0)"}).joined(separator:"\n")
+            case .integer(let data):
+                return "integer:\nlength:\(data.count)\n\(data.hexDescription())\n"
+            case .objectIdentifier(let data):
+                return "objectIdentifier:\nlength:\(data.count)\n\(data.hexDescription())\n"
+            case .null:
+                return "null\n"
+            case .bitString(let data):
+                return "bitString:\nlength:\(data.count)\n\(data.hexDescription())\n"
+            case .octetString(let data):
+                return "octetString:\nlength:\(data.count)\n\(data.hexDescription())\n"
+            }
+        }
     }
     
     enum ParserError: Error {
