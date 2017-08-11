@@ -1,5 +1,5 @@
 //
-//  PrivateKey.swift
+//  PrivateRSAKey.swift
 //  SwiftyRSA
 //
 //  Created by Lois Di Qual on 5/17/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class PrivateKey: Key {
+public class PrivateRSAKey: RSAKey {
     
     /// Reference to the key within the keychain
     //public let reference: SecKey
@@ -17,7 +17,7 @@ public class PrivateKey: Key {
     /// Note that it does not contain PEM headers and holds data as bytes, not as a base 64 string.
     public let originalData: Data?
     
-    let tag: String?
+    //let tag: String?
     
     /// Returns a PEM representation of the private key.
     ///
@@ -28,24 +28,7 @@ public class PrivateKey: Key {
         let pem = SwiftyRSA.format(keyData: data, withPemType: "RSA PRIVATE KEY")
         return pem
     }
-    
-#if false 
-    /// Creates a private key with a keychain key reference.
-    /// This initializer will throw if the provided key reference is not a private RSA key.
-    ///
-    /// - Parameter reference: Reference to the key within the keychain.
-    /// - Throws: SwiftyRSAError
-    public required init(reference: SecKey) throws {
-        
-        guard SwiftyRSA.isValidKeyReference(reference, forClass: kSecAttrKeyClassPrivate) else {
-            throw SwiftyRSAError.notAPrivateKey
-        }
-        
-        self.reference = reference
-        self.tag = nil
-        self.originalData = nil
-    }
-#endif
+
     
     /// Creates a private key with a RSA public key data.
     ///
@@ -53,20 +36,16 @@ public class PrivateKey: Key {
     /// - Throws: SwiftyRSAError
     required public init(data: Data) throws {
         self.originalData = data
-        let tag = UUID().uuidString
-        self.tag = tag
+        //let tag = UUID().uuidString
+        //self.tag = tag
         
         print("\(data.hexDescription())")
+        // ASNパースした結果
         let dataWithoutHeader = try SwiftyRSA.stripKeyHeader(keyData: data)
         //print("\(dataWithoutHeader.hexDescription())")
         // TODO:
         //reference = try SwiftyRSA.addKey(dataWithoutHeader, isPublic: false, tag: tag)
     }
-    
-    deinit {
-        if let tag = tag {
-            SwiftyRSA.removeKey(tag: tag)
-        }
-    }
+ 
 }
 

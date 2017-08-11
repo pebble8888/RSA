@@ -40,24 +40,6 @@ enum SwiftyRSA {
         return lines.joined(separator: "")
     }
     
-#if false
-    static func isValidKeyReference(_ reference: SecKey, forClass requiredClass: CFString) -> Bool {
-        
-        guard #available(iOS 10.0, *), #available(watchOS 3.0, *), #available(tvOS 10.0, *) else {
-            return true
-        }
-        
-        let attributes = SecKeyCopyAttributes(reference) as? [CFString: Any]
-        guard let keyType = attributes?[kSecAttrKeyType] as? String, let keyClass = attributes?[kSecAttrKeyClass] as? String else {
-            return false
-        }
-        
-        let isRSA = keyType == (kSecAttrKeyTypeRSA as String)
-        let isValidClass = keyClass == (requiredClass as String)
-        return isRSA && isValidClass
-    }
-#endif
-    
     static func format(keyData: Data, withPemType pemType: String) -> String {
         
         func split(_ str: String, byChunksOfLength length: Int) -> [String] {
@@ -72,126 +54,14 @@ enum SwiftyRSA {
         // See https://tools.ietf.org/html/rfc7468#page-6 (64base64char)
         // See https://tools.ietf.org/html/rfc7468#page-11 (example)
         let chunks = split(keyData.base64EncodedString(), byChunksOfLength: 64)
-        
         let pem = [
             "-----BEGIN \(pemType)-----",
             chunks.joined(separator: "\n"),
             "-----END \(pemType)-----"
         ]
-        
         return pem.joined(separator: "\n")
     }
     
-#if false 
-    static func data(forKeyReference reference: SecKey) throws -> Data {
-        
-        // On iOS+, we can use `SecKeyCopyExternalRepresentation` directly
-        if #available(iOS 10.0, *), #available(watchOS 3.0, *), #available(tvOS 10.0, *) {
-            
-            var error: Unmanaged<CFError>? = nil
-            let data = SecKeyCopyExternalRepresentation(reference, &error)
-            guard let unwrappedData = data as Data? else {
-                throw SwiftyRSAError.keyRepresentationFailed(error: error?.takeRetainedValue())
-            }
-            return unwrappedData
-            
-            // On iOS 8/9, we need to add the key again to the keychain with a temporary tag, grab the data,
-            // and delete the key again.
-        } else {
-            
-            let temporaryTag = UUID().uuidString
-            let addParams: [CFString: Any] = [
-                kSecValueRef: reference,
-                kSecReturnData: true,
-                kSecClass: kSecClassKey,
-                kSecAttrApplicationTag: temporaryTag
-            ]
-            
-            var data: AnyObject?
-            let addStatus = SecItemAdd(addParams as CFDictionary, &data)
-            guard let unwrappedData = data as? Data else {
-                throw SwiftyRSAError.keyAddFailed(status: addStatus)
-            }
-            
-            let deleteParams: [CFString: Any] = [
-                kSecClass: kSecClassKey,
-                kSecAttrApplicationTag: temporaryTag
-            ]
-            
-            _ = SecItemDelete(deleteParams as CFDictionary)
-            
-            return unwrappedData
-        }
-    }
-    
-    static func addKey(_ keyData: Data, isPublic: Bool, tag: String) throws ->  SecKey {
-        
-        var keyData = keyData
-        
-        guard let tagData = tag.data(using: .utf8) else {
-            throw SwiftyRSAError.tagEncodingFailed
-        }
-        
-        let keyClass = isPublic ? kSecAttrKeyClassPublic : kSecAttrKeyClassPrivate
-        
-        // On iOS 10+, we can use SecKeyCreateWithData without going through the keychain
-        if #available(iOS 10.0, *), #available(watchOS 3.0, *), #available(tvOS 10.0, *) {
-            
-            let sizeInBits = keyData.count * 8
-            let keyDict: [CFString: Any] = [
-                kSecAttrKeyType: kSecAttrKeyTypeRSA,
-                kSecAttrKeyClass: keyClass,
-                kSecAttrKeySizeInBits: NSNumber(value: sizeInBits),
-                kSecReturnPersistentRef: true
-            ]
-            
-            var error: Unmanaged<CFError>?
-            guard let key = SecKeyCreateWithData(keyData as CFData, keyDict as CFDictionary, &error) else {
-                throw SwiftyRSAError.keyCreateFailed(error: error?.takeRetainedValue())
-            }
-            return key
-            
-            // On iOS 9 and earlier, add a persistent version of the key to the system keychain
-        } else {
-            
-            let persistKey = UnsafeMutablePointer<AnyObject?>(mutating: nil)
-            
-            let keyAddDict: [CFString: Any] = [
-                kSecClass: kSecClassKey,
-                kSecAttrApplicationTag: tagData,
-                kSecAttrKeyType: kSecAttrKeyTypeRSA,
-                kSecValueData: keyData,
-                kSecAttrKeyClass: keyClass,
-                kSecReturnPersistentRef: true,
-                kSecAttrAccessible: kSecAttrAccessibleWhenUnlocked
-            ]
-            
-            let addStatus = SecItemAdd(keyAddDict as CFDictionary, persistKey)
-            guard addStatus == errSecSuccess || addStatus == errSecDuplicateItem else {
-                throw SwiftyRSAError.keyAddFailed(status: addStatus)
-            }
-            
-            let keyCopyDict: [CFString: Any] = [
-                kSecClass: kSecClassKey,
-                kSecAttrApplicationTag: tagData,
-                kSecAttrKeyType: kSecAttrKeyTypeRSA,
-                kSecAttrKeyClass: keyClass,
-                kSecAttrAccessible: kSecAttrAccessibleWhenUnlocked,
-                kSecReturnRef: true,
-                ]
-            
-            // Now fetch the SecKeyRef version of the key
-            var keyRef: AnyObject? = nil
-            let copyStatus = SecItemCopyMatching(keyCopyDict as CFDictionary, &keyRef)
-            
-            guard let unwrappedKeyRef = keyRef else {
-                throw SwiftyRSAError.keyCopyFailed(status: copyStatus)
-            }
-            
-            return unwrappedKeyRef as! SecKey // swiftlint:disable:this force_cast
-        }
-    }
-#endif
     
     /**
      This method strips the x509 header from a provided ASN.1 DER key.
@@ -260,20 +130,4 @@ enum SwiftyRSA {
         // Unable to extract bit/octet string or raw integer sequence
         throw SwiftyRSAError.invalidAsn1Structure
     }
-    
-    static func removeKey(tag: String) {
-        
-        guard let tagData = tag.data(using: .utf8) else {
-            return
-        }
-        
-        let keyRemoveDict: [CFString: Any] = [
-            kSecClass: kSecClassKey,
-            kSecAttrKeyType: kSecAttrKeyTypeRSA,
-            kSecAttrApplicationTag: tagData,
-            ]
-        
-        SecItemDelete(keyRemoveDict as CFDictionary)
-    }
-    
 }

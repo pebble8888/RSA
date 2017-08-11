@@ -1,5 +1,5 @@
 //
-//  Key.swift
+//  RSAKey.swift
 //  SwiftyRSA
 //
 //  Created by Loïs Di Qual on 9/19/16.
@@ -9,13 +9,11 @@
 import Foundation
 //import Security
 
-public protocol Key: class {
+public protocol RSAKey: class {
     
-    //var reference: SecKey { get }
     var originalData: Data? { get }
     
     init(data: Data) throws
-    //init(reference: SecKey) throws
     init(base64Encoded base64String: String) throws
     init(pemEncoded pemString: String) throws
     init(pemNamed pemName: String, in bundle: Bundle) throws
@@ -26,7 +24,7 @@ public protocol Key: class {
     func base64String() throws -> String
 }
 
-public extension Key {
+public extension RSAKey {
     
     /// Returns a Base64 representation of the public key.
     ///

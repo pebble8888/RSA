@@ -1,6 +1,5 @@
 //
-//  CryptRSA.swift
-//  RSA
+//  RFC3447.swift
 //
 //  Created by pebble8888 on 2017/05/31.
 //  Copyright © 2017年 pebble8888. All rights reserved.
@@ -20,7 +19,7 @@ func aa() {
 
 
 
-enum CryptRSA_DECODE_PKCS1_OAEP_MGF : Error {
+enum CryptRSA_DECODE_PKCS1_OAEP_MGF_Error : Error {
     case decodeError
 }
 
@@ -35,10 +34,10 @@ func DECODE_PKCS1_OAEP_MGF(keylen:UInt, // RSAキーの長さ　バイト数
     // flen :メッセージ長
     let hlen = labelhash.length()
     if encoded_msg.count <= 0 || keylen <= 0 {
-        throw CryptRSA_DECODE_PKCS1_OAEP_MGF.decodeError
+        throw CryptRSA_DECODE_PKCS1_OAEP_MGF_Error.decodeError
     }
     if keymod < UInt(encoded_msg.count) || keymod < 2 * hlen + 2 {
-        throw CryptRSA_DECODE_PKCS1_OAEP_MGF.decodeError
+        throw CryptRSA_DECODE_PKCS1_OAEP_MGF_Error.decodeError
     }
     let hash:[UInt8] = labelhash.hash(label)
     let Y:UInt8 = encoded_msg[0]
@@ -59,7 +58,7 @@ func DECODE_PKCS1_OAEP_MGF(keylen:UInt, // RSAキーの長さ　バイト数
         }
     }
     guard let l_msg = msg, hash == Array(hashDash), Y == 0 else {
-        throw CryptRSA_DECODE_PKCS1_OAEP_MGF.decodeError
+        throw CryptRSA_DECODE_PKCS1_OAEP_MGF_Error.decodeError
     }
     return l_msg
 }
@@ -116,7 +115,7 @@ func random(_ len:UInt) -> [UInt8]
     return (0..<len).map{ _ in UInt8(arc4random_uniform(256)) }
 }
 
-enum CryptRSA_MGF1 : Error {
+enum CryptRSA_MGF1_Error : Error {
     case maskTooLong
 }
 
@@ -125,7 +124,7 @@ func PKCS1_MGF(mgfSeed:Array<UInt8>, maskLen:UInt, hash:MDHashable) throws -> [U
     let hLen:UInt = hash.length()
     let v:UInt = pow(2, 32)
     if maskLen > v * hLen {
-        throw CryptRSA_MGF1.maskTooLong 
+        throw CryptRSA_MGF1_Error.maskTooLong
     }
     var t:[UInt8] = []
     for counter in 0 ..< UInt(ceil(Double(maskLen)/Double(hLen))) {

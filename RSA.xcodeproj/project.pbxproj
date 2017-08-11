@@ -15,17 +15,17 @@
 		A2ABFB111EDEEAE800BF4B34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB0F1EDEEAE800BF4B34 /* LaunchScreen.storyboard */; };
 		A2ABFB1C1EDEEAE900BF4B34 /* RSATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB1B1EDEEAE900BF4B34 /* RSATests.swift */; };
 		A2ABFB291EDEEB3800BF4B34 /* NSData+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB281EDEEB3800BF4B34 /* NSData+SHA.m */; };
-		A2ABFB2B1EDEEE6D00BF4B34 /* CryptRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB2A1EDEEE6D00BF4B34 /* CryptRSA.swift */; };
+		A2ABFB2B1EDEEE6D00BF4B34 /* RFC3447.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB2A1EDEEE6D00BF4B34 /* RFC3447.swift */; };
 		A2ABFB2D1EDEF34200BF4B34 /* SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB2C1EDEF34200BF4B34 /* SHA.swift */; };
 		A2ABFB2F1EE17F8C00BF4B34 /* PBHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB2E1EE17F8B00BF4B34 /* PBHex.swift */; };
-		A2ABFB551EE2DE5900BF4B34 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB541EE2DE5900BF4B34 /* Key.swift */; };
+		A2ABFB551EE2DE5900BF4B34 /* RSAKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB541EE2DE5900BF4B34 /* RSAKey.swift */; };
 		A2ABFB571EE2DF2A00BF4B34 /* SwiftyRSAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB561EE2DF2A00BF4B34 /* SwiftyRSAError.swift */; };
 		A2ABFB591EE2E0EB00BF4B34 /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB581EE2E0EB00BF4B34 /* SwiftyRSA.swift */; };
 		A2ABFB5B1EE2E35F00BF4B34 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB5A1EE2E35F00BF4B34 /* Asn1Parser.swift */; };
 		A2ABFB5D1EE2E68400BF4B34 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB5C1EE2E68400BF4B34 /* ClearMessage.swift */; };
 		A2ABFB5F1EE2E6E800BF4B34 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB5E1EE2E6E800BF4B34 /* Message.swift */; };
-		A2ABFB611EE2E75100BF4B34 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB601EE2E75100BF4B34 /* PrivateKey.swift */; };
-		A2ABFB631EE2E76B00BF4B34 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB621EE2E76B00BF4B34 /* PublicKey.swift */; };
+		A2ABFB611EE2E75100BF4B34 /* PrivateRSAKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB601EE2E75100BF4B34 /* PrivateRSAKey.swift */; };
+		A2ABFB631EE2E76B00BF4B34 /* PublicRSAKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB621EE2E76B00BF4B34 /* PublicRSAKey.swift */; };
 		A2ABFB651EE2E79800BF4B34 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB641EE2E79800BF4B34 /* Signature.swift */; };
 		A2ABFB671EE2EE2B00BF4B34 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB661EE2EE2B00BF4B34 /* EncryptedMessage.swift */; };
 		A2ABFB6E1EEB5C4500BF4B34 /* encrypted_msg.bin in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB681EEB5AD000BF4B34 /* encrypted_msg.bin */; };
@@ -74,17 +74,17 @@
 		A2ABFB261EDEEB3800BF4B34 /* RSA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSA-Bridging-Header.h"; sourceTree = "<group>"; };
 		A2ABFB271EDEEB3800BF4B34 /* NSData+SHA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA.h"; sourceTree = "<group>"; };
 		A2ABFB281EDEEB3800BF4B34 /* NSData+SHA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA.m"; sourceTree = "<group>"; };
-		A2ABFB2A1EDEEE6D00BF4B34 /* CryptRSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptRSA.swift; sourceTree = "<group>"; };
+		A2ABFB2A1EDEEE6D00BF4B34 /* RFC3447.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3447.swift; sourceTree = "<group>"; };
 		A2ABFB2C1EDEF34200BF4B34 /* SHA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA.swift; sourceTree = "<group>"; };
 		A2ABFB2E1EE17F8B00BF4B34 /* PBHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBHex.swift; sourceTree = "<group>"; };
-		A2ABFB541EE2DE5900BF4B34 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		A2ABFB541EE2DE5900BF4B34 /* RSAKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAKey.swift; sourceTree = "<group>"; };
 		A2ABFB561EE2DF2A00BF4B34 /* SwiftyRSAError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRSAError.swift; sourceTree = "<group>"; };
 		A2ABFB581EE2E0EB00BF4B34 /* SwiftyRSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRSA.swift; sourceTree = "<group>"; };
 		A2ABFB5A1EE2E35F00BF4B34 /* Asn1Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asn1Parser.swift; sourceTree = "<group>"; };
 		A2ABFB5C1EE2E68400BF4B34 /* ClearMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearMessage.swift; sourceTree = "<group>"; };
 		A2ABFB5E1EE2E6E800BF4B34 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		A2ABFB601EE2E75100BF4B34 /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
-		A2ABFB621EE2E76B00BF4B34 /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
+		A2ABFB601EE2E75100BF4B34 /* PrivateRSAKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateRSAKey.swift; sourceTree = "<group>"; };
+		A2ABFB621EE2E76B00BF4B34 /* PublicRSAKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicRSAKey.swift; sourceTree = "<group>"; };
 		A2ABFB641EE2E79800BF4B34 /* Signature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
 		A2ABFB661EE2EE2B00BF4B34 /* EncryptedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptedMessage.swift; sourceTree = "<group>"; };
 		A2ABFB681EEB5AD000BF4B34 /* encrypted_msg.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = encrypted_msg.bin; sourceTree = "<group>"; };
@@ -163,18 +163,18 @@
 				A2ABFB5A1EE2E35F00BF4B34 /* Asn1Parser.swift */,
 				A2ABFB0D1EDEEAE800BF4B34 /* Assets.xcassets */,
 				A2ABFB5C1EE2E68400BF4B34 /* ClearMessage.swift */,
-				A2ABFB2A1EDEEE6D00BF4B34 /* CryptRSA.swift */,
+				A2ABFB2A1EDEEE6D00BF4B34 /* RFC3447.swift */,
 				A2ABFB661EE2EE2B00BF4B34 /* EncryptedMessage.swift */,
 				A2ABFB121EDEEAE800BF4B34 /* Info.plist */,
-				A2ABFB541EE2DE5900BF4B34 /* Key.swift */,
+				A2ABFB541EE2DE5900BF4B34 /* RSAKey.swift */,
 				A2ABFB0F1EDEEAE800BF4B34 /* LaunchScreen.storyboard */,
 				A2ABFB0A1EDEEAE800BF4B34 /* Main.storyboard */,
 				A2ABFB5E1EE2E6E800BF4B34 /* Message.swift */,
 				A2ABFB271EDEEB3800BF4B34 /* NSData+SHA.h */,
 				A2ABFB281EDEEB3800BF4B34 /* NSData+SHA.m */,
 				A2ABFB2E1EE17F8B00BF4B34 /* PBHex.swift */,
-				A2ABFB601EE2E75100BF4B34 /* PrivateKey.swift */,
-				A2ABFB621EE2E76B00BF4B34 /* PublicKey.swift */,
+				A2ABFB601EE2E75100BF4B34 /* PrivateRSAKey.swift */,
+				A2ABFB621EE2E76B00BF4B34 /* PublicRSAKey.swift */,
 				A2ABFB261EDEEB3800BF4B34 /* RSA-Bridging-Header.h */,
 				A2ABFB2C1EDEF34200BF4B34 /* SHA.swift */,
 				A2ABFB641EE2E79800BF4B34 /* Signature.swift */,
@@ -440,14 +440,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2ABFB631EE2E76B00BF4B34 /* PublicKey.swift in Sources */,
-				A2ABFB551EE2DE5900BF4B34 /* Key.swift in Sources */,
+				A2ABFB631EE2E76B00BF4B34 /* PublicRSAKey.swift in Sources */,
+				A2ABFB551EE2DE5900BF4B34 /* RSAKey.swift in Sources */,
 				A2ABFB091EDEEAE800BF4B34 /* ViewController.swift in Sources */,
 				A2ABFB651EE2E79800BF4B34 /* Signature.swift in Sources */,
 				A2ABFB671EE2EE2B00BF4B34 /* EncryptedMessage.swift in Sources */,
 				A2ABFB2F1EE17F8C00BF4B34 /* PBHex.swift in Sources */,
 				A2ABFB2D1EDEF34200BF4B34 /* SHA.swift in Sources */,
-				A2ABFB2B1EDEEE6D00BF4B34 /* CryptRSA.swift in Sources */,
+				A2ABFB2B1EDEEE6D00BF4B34 /* RFC3447.swift in Sources */,
 				A2ABFB5B1EE2E35F00BF4B34 /* Asn1Parser.swift in Sources */,
 				A2ABFB591EE2E0EB00BF4B34 /* SwiftyRSA.swift in Sources */,
 				A2ABFB571EE2DF2A00BF4B34 /* SwiftyRSAError.swift in Sources */,
@@ -455,7 +455,7 @@
 				A2ABFB5F1EE2E6E800BF4B34 /* Message.swift in Sources */,
 				A2ABFB291EDEEB3800BF4B34 /* NSData+SHA.m in Sources */,
 				A2ABFB5D1EE2E68400BF4B34 /* ClearMessage.swift in Sources */,
-				A2ABFB611EE2E75100BF4B34 /* PrivateKey.swift in Sources */,
+				A2ABFB611EE2E75100BF4B34 /* PrivateRSAKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -54,7 +54,7 @@ public class ClearMessage: Message {
     ///   - padding: Padding to use during the encryption
     /// - Returns: Encrypted message
     /// - Throws: SwiftyRSAError
-    public func encrypted(with key: PublicKey, padding: Padding) throws -> EncryptedMessage {
+    public func encrypted(with key: PublicRSAKey, padding: Padding) throws -> EncryptedMessage {
 #if false 
         let blockSize = SecKeyGetBlockSize(key.reference)
         let maxChunkSize = (padding == []) ? blockSize : blockSize - 11
@@ -99,7 +99,7 @@ public class ClearMessage: Message {
     ///   - digestType: Digest
     /// - Returns: Signature of the clear message after signing it with the specified digest type.
     /// - Throws: SwiftyRSAError
-    public func signed(with key: PrivateKey, digestType: Signature.DigestType) throws -> Signature {
+    public func signed(with key: PrivateRSAKey, digestType: Signature.DigestType) throws -> Signature {
 #if false
         let digest = self.digest(digestType: digestType)
         let blockSize = SecKeyGetBlockSize(key.reference)
@@ -136,7 +136,7 @@ public class ClearMessage: Message {
     ///   - digestType: Digest type used for the signature
     /// - Returns: Result of the verification
     /// - Throws: SwiftyRSAError
-    public func verify(with key: PublicKey, signature: Signature, digestType: Signature.DigestType) throws -> Bool {
+    public func verify(with key: PublicRSAKey, signature: Signature, digestType: Signature.DigestType) throws -> Bool {
         
         let digest = self.digest(digestType: digestType)
         var digestBytes = [UInt8](repeating: 0, count: digest.count)
@@ -163,7 +163,6 @@ public class ClearMessage: Message {
     func digest(digestType: Signature.DigestType) -> Data {
         
         let digest: Data
-        
         switch digestType {
         case .sha1:
             //digest = (data as NSData).swiftyRSASHA1()
@@ -181,8 +180,6 @@ public class ClearMessage: Message {
             //digest = (data as NSData).swiftyRSASHA512()
             digest = (data as NSData).cryptRSA_SHA512()
         }
-        
         return digest
     }
 }
-
