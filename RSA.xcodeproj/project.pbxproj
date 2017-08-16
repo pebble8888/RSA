@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08C7539D2F1F741FC618DC71 /* Pods_RSATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F503F2B7369D4BC03F2D197C /* Pods_RSATests.framework */; };
-		A265DF791F3DDAEF00555603 /* BigInt+RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265DF781F3DDAEF00555603 /* BigInt+RSA.swift */; };
+		A266EEE21F40A42E00B715CF /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266EEE11F40A42E00B715CF /* Number.swift */; };
+		A266EEE61F44AAB600B715CF /* BigInt+RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266EEE51F44AAB600B715CF /* BigInt+RSA.swift */; };
 		A2ABFB071EDEEAE800BF4B34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB061EDEEAE800BF4B34 /* AppDelegate.swift */; };
 		A2ABFB091EDEEAE800BF4B34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABFB081EDEEAE800BF4B34 /* ViewController.swift */; };
 		A2ABFB0C1EDEEAE800BF4B34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2ABFB0A1EDEEAE800BF4B34 /* Main.storyboard */; };
@@ -62,7 +63,8 @@
 /* Begin PBXFileReference section */
 		180D2387344CC8F9CBD2B3AC /* Pods-RSATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSATests/Pods-RSATests.debug.xcconfig"; sourceTree = "<group>"; };
 		44400821CB63E28173FA1037 /* Pods_RSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A265DF781F3DDAEF00555603 /* BigInt+RSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BigInt+RSA.swift"; sourceTree = "<group>"; };
+		A266EEE11F40A42E00B715CF /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		A266EEE51F44AAB600B715CF /* BigInt+RSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BigInt+RSA.swift"; sourceTree = "<group>"; };
 		A2ABFB031EDEEAE800BF4B34 /* RSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2ABFB061EDEEAE800BF4B34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2ABFB081EDEEAE800BF4B34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -183,7 +185,8 @@
 				A2ABFB581EE2E0EB00BF4B34 /* SwiftyRSA.swift */,
 				A2ABFB561EE2DF2A00BF4B34 /* SwiftyRSAError.swift */,
 				A2ABFB081EDEEAE800BF4B34 /* ViewController.swift */,
-				A265DF781F3DDAEF00555603 /* BigInt+RSA.swift */,
+				A266EEE51F44AAB600B715CF /* BigInt+RSA.swift */,
+				A266EEE11F40A42E00B715CF /* Number.swift */,
 			);
 			path = RSA;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A266EEE61F44AAB600B715CF /* BigInt+RSA.swift in Sources */,
 				A2ABFB631EE2E76B00BF4B34 /* PublicRSAKey.swift in Sources */,
 				A2ABFB551EE2DE5900BF4B34 /* RSAKey.swift in Sources */,
 				A2ABFB091EDEEAE800BF4B34 /* ViewController.swift in Sources */,
@@ -450,10 +454,10 @@
 				A2ABFB671EE2EE2B00BF4B34 /* EncryptedMessage.swift in Sources */,
 				A2ABFB2F1EE17F8C00BF4B34 /* PBHex.swift in Sources */,
 				A2ABFB2D1EDEF34200BF4B34 /* SHA.swift in Sources */,
-				A265DF791F3DDAEF00555603 /* BigInt+RSA.swift in Sources */,
 				A2ABFB2B1EDEEE6D00BF4B34 /* RFC3447.swift in Sources */,
 				A2ABFB5B1EE2E35F00BF4B34 /* Asn1Parser.swift in Sources */,
 				A2ABFB591EE2E0EB00BF4B34 /* SwiftyRSA.swift in Sources */,
+				A266EEE21F40A42E00B715CF /* Number.swift in Sources */,
 				A2ABFB571EE2DF2A00BF4B34 /* SwiftyRSAError.swift in Sources */,
 				A2ABFB071EDEEAE800BF4B34 /* AppDelegate.swift in Sources */,
 				A2ABFB5F1EE2E6E800BF4B34 /* Message.swift in Sources */,

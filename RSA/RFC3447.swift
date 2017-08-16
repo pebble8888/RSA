@@ -11,6 +11,7 @@ import Foundation
 import BigInt
 
 // TODO:鍵ファイルをASNパースしてRSA鍵情報を取り出すところが未着手
+//      -> privatekeyについては完了
 // RSAメッセージを暗号化する処理は実装済み
 func aa() {
     
@@ -25,8 +26,8 @@ enum CryptRSA_DECODE_PKCS1_OAEP_MGF_Error : Error {
 
 func DECODE_PKCS1_OAEP_MGF(keylen:UInt, // RSAキーの長さ　バイト数
                             keymod:UInt, // RSAキーの法
-                            encoded_msg:[UInt8],
-                            label:[UInt8],
+                            encoded_msg:[UInt8], // ?
+                            label:[UInt8], // ?
                             labelhash:MDHashable,
                             mgfhash:MDHashable) throws -> [UInt8]
 {
@@ -135,13 +136,13 @@ func PKCS1_MGF(mgfSeed:Array<UInt8>, maskLen:UInt, hash:MDHashable) throws -> [U
     return Array(t[0..<Int(maskLen)])
 }
 
-enum CryptRSA_I2OSP : Error {
+enum CryptRSA_I2OSP_Error : Error {
     case integerTooLarge
 }
 
 func I2OSP(_ x:UInt, _ xLen:UInt) throws -> [UInt8] {
     if x >= pow(256, xLen) {
-        throw CryptRSA_I2OSP.integerTooLarge
+        throw CryptRSA_I2OSP_Error.integerTooLarge
     }
     return (0..<xLen).map{UInt8(x >> (8 * $0)) & UInt8(255)}
 }

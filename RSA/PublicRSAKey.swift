@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BigInt
 
 public class PublicRSAKey: RSAKey {
     
@@ -82,6 +83,17 @@ public class PublicRSAKey: RSAKey {
             return try? PublicRSAKey(pemEncoded: thisKey)
         }
         return keys
+    }
+    
+    private var modulus:BigInt?
+    private var exponentE:BigInt?
+    
+    public var description: String
+    {
+        var s:String = ""
+        if let v = modulus { s += "modulus:\(v)\n" }
+        if let v = exponentE { s += "exponentE:\(v)\n" }
+        return s
     }
 }
 
