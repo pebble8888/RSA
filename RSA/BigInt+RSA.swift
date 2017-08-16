@@ -32,3 +32,59 @@ extension BigInt {
         }
     }
 }
+
+fileprivate let smallPrimes:[UInt8] = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]
+
+extension BigUInt {
+    // we think only positive for simplicity
+    private static func randomPositiveOdd(withExactWidth width:Int) -> BigUInt {
+        let v = BigUInt.randomInteger(withExactWidth: width)
+        // odd number
+        return v | 1
+    }
+    
+    public static func generatePrime(withExactWidth width:Int) -> BigUInt {
+        while true {
+            // create random odd
+            let p = randomPositiveOdd(withExactWidth: width)
+            let delta_max = 1 << 20 // 1048576
+            
+            delta_loop:
+            for delta in Swift.stride(from: 0, to: delta_max, by: 2) {
+                let target = p + BigUInt(delta)
+                // check by fermet test for small primes
+                if target.isSmallPrimeFermet() {
+                    let miller_rabin_repeat_count = 20
+                    for _ in 0..<miller_rabin_repeat_count {
+                        // 2 <= a <= target-1
+                        let base_minus_3 = BigUInt.randomIntegerLessThan(target-3)
+                        let base = base_minus_3 + 3
+                        // check by miller rabin test
+                        if target.isStrongProbablePrime(base) {
+                            // we must check width because width of (p + delta) might
+                            // be more width
+                            if target.width == width {
+                                return target
+                            } else {
+                                // over width
+                                break delta_loop
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // fermat test for smallprimes
+    private func isSmallPrimeFermet() -> Bool {
+        for i in smallPrimes {
+            if (self % BigUInt(i)) == 0 {
+                // composite
+                return false
+            }
+        }
+        // prime
+        return true
+    }
+}

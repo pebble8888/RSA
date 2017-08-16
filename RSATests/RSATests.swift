@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import RSA
+@testable import BigInt
 
 class RSATests: XCTestCase {
     
@@ -28,6 +29,13 @@ class RSATests: XCTestCase {
         let str = try String(contentsOf: URL(fileURLWithPath: path), encoding: .utf8)
         let privateKey = try PrivateRSAKey(pemEncoded: str)
         print("\(privateKey)")
+    }
+    
+    func test_gen_prime() {
+        for _ in 0..<10 {
+            let a = BigUInt.generatePrime(withExactWidth: 9)
+            print("\(a)")
+        }
     }
     
     func test_PKCS1_OAEP_MGF() {

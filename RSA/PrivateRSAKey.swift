@@ -103,17 +103,5 @@ public class PrivateRSAKey: RSAKey, CustomStringConvertible {
         return s
     }
     
-    /*
-    public static func generate() -> Self
-    {
-    }
-     */
-   
-    // we think positive value for simplicity
-    private static func generatePrime(width:Int) -> BigUInt {
-        let v = BigUInt.randomInteger(withExactWidth: width)
-        // odd number
-        return v | 1
-    }
 }
 
