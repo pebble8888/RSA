@@ -37,13 +37,13 @@ fileprivate let smallPrimes:[UInt8] = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
 
 extension BigUInt {
     // we think only positive for simplicity
-    private static func randomPositiveOdd(withExactWidth width:Int) -> BigUInt {
-        let v = BigUInt.randomInteger(withExactWidth: width)
+    private static func randomPositiveOdd(withExactWidth width:UInt) -> BigUInt {
+        let v = BigUInt.randomInteger(withExactWidth: Int(width))
         // odd number
         return v | 1
     }
     
-    public static func generatePrime(withExactWidth width:Int) -> BigUInt {
+    public static func generatePrime(withExactWidth width:UInt) -> BigUInt {
         while true {
             // create random odd
             let p = randomPositiveOdd(withExactWidth: width)
@@ -63,7 +63,7 @@ extension BigUInt {
                         if target.isStrongProbablePrime(base) {
                             // we must check width because width of (p + delta) might
                             // be more width
-                            if target.width == width {
+                            if UInt(target.width) == width {
                                 return target
                             } else {
                                 // over width

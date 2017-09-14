@@ -11,15 +11,14 @@ import BigInt
 
 public enum RSAError: Error {
     case invalidPrivateKey(message:String)
+    case tooSmallBitWidth
 }
 
 public class PrivateRSAKey: RSAKey, CustomStringConvertible {
     
     /// Original data of the private key.
     /// Note that it does not contain PEM headers and holds data as bytes, not as a base 64 string.
-    public let originalData: Data?
-    
-    //let tag: String?
+    public var originalData: Data?
     
     /// Returns a PEM representation of the private key.
     ///
@@ -100,7 +99,83 @@ public class PrivateRSAKey: RSAKey, CustomStringConvertible {
         if let v = primeQ { s += "primeQ:\(v)\n" }
         if let v = dModPMinus1 { s += "dModPMinus1:\(v)\n" }
         if let v = dModQMinus1 { s += "dModQMinus1:\(v)\n" }
+        if let v = inverseOfQModP { s += "inverseOfQModP:\(v)\n" }
         return s
+    }
+    
+    public init(bitWidth:UInt) throws {
+        if (bitWidth < 16){
+            throw RSAError.tooSmallBitWidth
+        }
+        let e = BigUInt(65537) // 65537 = 0x10001 is prime
+        
+        let bitWidthP = (bitWidth + 1)/2
+        let bitWidthQ = bitWidth - bitWidthP
+        
+        repeat {
+            // gcd(p-1,e) == 1
+            var p:BigUInt
+            repeat {
+                p = BigUInt.generatePrime(withExactWidth: bitWidthP)
+                let r = BigUInt.gcd(p-1, e)
+                if r == 1 {
+                    break
+                }
+            } while true
+            
+            // p != q
+            var q:BigUInt
+            repeat {
+                q = BigUInt.generatePrime(withExactWidth: bitWidthQ)
+            } while p == q
+            
+            // gcd(q-1,e) == 1
+            repeat {
+                let r = BigUInt.gcd(q-1, e)
+                if r == 1 {
+                    break
+                }
+            } while true
+            
+            // p > q
+            if p < q {
+                let t = p
+                p = q
+                q = t
+            }
+            
+            // n = p * q
+            let n = p * q
+            
+            // d = e ^ -1 mod (p-1)*(q-1)
+            let m = (p-1)*(q-1)
+            guard let d = e.inverse(m) else {
+                continue
+            }
+            
+            // d mod (p-1)
+            let dp1 = d % (p-1)
+            
+            // d mod (q-1)
+            let dq1 = d % (q-1)
+            
+            // q ^ -1 mod p
+            guard let invQP = q.inverse(p) else {
+                continue
+            }
+            
+            // success
+            self.rsaVersion = 0
+            self.modulus = BigInt(n)
+            self.exponentE = BigInt(e)
+            self.exponentD = BigInt(d)
+            self.primeP = BigInt(p)
+            self.primeQ = BigInt(q)
+            self.dModPMinus1 = BigInt(dp1)
+            self.dModQMinus1 = BigInt(dq1)
+            self.inverseOfQModP = BigInt(invQP)
+            break
+        } while true
     }
     
 }

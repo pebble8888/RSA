@@ -38,6 +38,11 @@ class RSATests: XCTestCase {
         }
     }
     
+    func test_gen_privateKey() throws {
+        let key = try PrivateRSAKey(bitWidth: 16)
+        print("\(key)")
+    }
+    
     func test_PKCS1_OAEP_MGF() {
         guard let enc = try? ENCODE_PKCS1_OAEP_MGF(
                               keylen: 2048/8, 
