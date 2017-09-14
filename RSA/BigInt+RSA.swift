@@ -14,15 +14,15 @@ extension BigInt {
     // convert bignary Integer format to BigInt
     // leftmost bit is sign
     public init(data:Data){
-        self.abs = 0
-        self.negative = false
+        self.magnitude = 0
+        self.sign = .minus
         // big endian
         var i:Int = 0
         let ary = [UInt8](data)
         let count:Int = ary.count
         for d in ary {
             let v:BigUInt = BigUInt(d) << (8 * (count - i - 1))
-            self.abs += v
+            self.magnitude += v
             i += 1
         }
         // leftmost bit is sign
@@ -57,13 +57,13 @@ extension BigUInt {
                     let miller_rabin_repeat_count = 20
                     for _ in 0..<miller_rabin_repeat_count {
                         // 2 <= a <= target-1
-                        let base_minus_3 = BigUInt.randomIntegerLessThan(target-3)
+                        let base_minus_3 = BigUInt.randomInteger(lessThan: target-3)
                         let base = base_minus_3 + 3
                         // check by miller rabin test
                         if target.isStrongProbablePrime(base) {
                             // we must check width because width of (p + delta) might
                             // be more width
-                            if UInt(target.width) == width {
+                            if UInt(target.bitWidth) == width {
                                 return target
                             } else {
                                 // over width

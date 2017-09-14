@@ -6,7 +6,7 @@ target 'RSA' do
   use_frameworks!
 
   # Pods for RSA
-  pod 'BigInt', '~> 2.1' 
+  pod 'BigInt', :git => 'https://github.com/attaswift/BigInt.git', :branch => 'swift4' 
 
   target 'RSATests' do
     inherit! :search_paths

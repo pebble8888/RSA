@@ -1,9 +1,9 @@
 //
-//  BigUInt Random.swift
+//  Random.swift
 //  BigInt
 //
 //  Created by Károly Lőrentey on 2016-01-04.
-//  Copyright © 2016 Károly Lőrentey.
+//  Copyright © 2016-2017 Károly Lőrentey.
 //
 
 import Foundation
@@ -50,7 +50,7 @@ extension BigUInt {
     public static func randomInteger(withExactWidth width: Int) -> BigUInt {
         guard width > 1 else { return BigUInt(width) }
         var result = randomInteger(withMaximumWidth: width - 1)
-        result[(width - 1) / Digit.width] |= 1 << Digit((width - 1) % Digit.width)
+        result[(width - 1) / Word.bitWidth] |= 1 << Word((width - 1) % Word.bitWidth)
         return result
     }
 
@@ -58,8 +58,8 @@ extension BigUInt {
     ///
     /// - Returns: A random big integer that is less than `limit`.
     /// - Note: This function uses `arc4random_buf` to generate random bits.
-    public static func randomIntegerLessThan(_ limit: BigUInt) -> BigUInt {
-        let width = limit.width
+    public static func randomInteger(lessThan limit: BigUInt) -> BigUInt {
+        let width = limit.bitWidth
         var random = randomInteger(withMaximumWidth: width)
         while random >= limit {
             random = randomInteger(withMaximumWidth: width)

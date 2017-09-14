@@ -1,15 +1,15 @@
 //
-//  BigUInt Prime Test.swift
+//  Prime Test.swift
 //  BigInt
 //
 //  Created by Károly Lőrentey on 2016-01-04.
-//  Copyright © 2016 Károly Lőrentey.
+//  Copyright © 2016-2017 Károly Lőrentey.
 //
 
 /// The first several [prime numbers][primes]. 
 ///
 /// [primes]: https://oeis.org/A000040
-let primes: [BigUInt.Digit] = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
+let primes: [BigUInt.Word] = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
 
 /// The ith element in this sequence is the smallest composite number that passes the strong probable prime test
 /// for all of the first (i+1) primes.
@@ -38,17 +38,22 @@ extension BigUInt {
     ///
     /// [sppt]: https://en.wikipedia.org/wiki/Probable_prime
     public func isStrongProbablePrime(_ base: BigUInt) -> Bool {
+        precondition(base > (1 as BigUInt))
+        precondition(self > (0 as BigUInt))
         let dec = self - 1
 
-        let r = dec.trailingZeroes
+        let r = dec.trailingZeroBitCount
         let d = dec >> r
 
         var test = base.power(d, modulus: self)
         if test == 1 || test == dec { return true }
 
         if r > 0 {
+            let shift = self.leadingZeroBitCount
+            let normalized = self << shift
             for _ in 1 ..< r {
-                test = (test * test) % self
+                test *= test
+                test.formRemainder(dividingBy: normalized, normalizedBy: shift)
                 if test == 1 {
                     return false
                 }
@@ -84,7 +89,7 @@ extension BigUInt {
             if self.count == 1 && self[0] == p {
                 return true
             }
-            if self.divided(byDigit: p).remainder == 0 {
+            if self.quotientAndRemainder(dividingByWord: p).remainder == 0 {
                 return false
             }
         }
@@ -105,7 +110,7 @@ extension BigUInt {
 
         /// Otherwise do as many rounds of random SPPT as required.
         for _ in 0 ..< rounds {
-            let random = BigUInt.randomIntegerLessThan(self)
+            let random = BigUInt.randomInteger(lessThan: self - 2) + 2
             guard isStrongProbablePrime(random) else {
                 return false
             }
@@ -113,5 +118,36 @@ extension BigUInt {
 
         // Well, it smells primey to me.
         return true
+    }
+}
+
+extension BigInt {
+    //MARK: Primality Testing
+
+    /// Returns true iff this integer passes the [strong probable prime test][sppt] for the specified base.
+    ///
+    /// [sppt]: https://en.wikipedia.org/wiki/Probable_prime
+    public func isStrongProbablePrime(_ base: BigInt) -> Bool {
+        precondition(base.sign == .plus)
+        if self.sign == .minus { return false }
+        return self.magnitude.isStrongProbablePrime(base.magnitude)
+    }
+
+    /// Returns true if this integer is probably prime. Returns false if this integer is definitely not prime.
+    ///
+    /// This function performs a probabilistic [Miller-Rabin Primality Test][mrpt], consisting of `rounds` iterations,
+    /// each calculating the strong probable prime test for a random base. The number of rounds is 10 by default,
+    /// but you may specify your own choice.
+    ///
+    /// To speed things up, the function checks if `self` is divisible by the first few prime numbers before
+    /// diving into (slower) Miller-Rabin testing.
+    ///
+    /// Also, when `self` is less than 82 bits wide, `isPrime` does a deterministic test that is guaranteed to
+    /// return a correct result.
+    ///
+    /// [mrpt]: https://en.wikipedia.org/wiki/Miller–Rabin_primality_test
+    public func isPrime(rounds: Int = 10) -> Bool {
+        if self.sign == .minus { return false }
+        return self.magnitude.isPrime(rounds: rounds)
     }
 }

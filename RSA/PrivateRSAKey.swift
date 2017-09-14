@@ -117,7 +117,7 @@ public class PrivateRSAKey: RSAKey, CustomStringConvertible {
             var p:BigUInt
             repeat {
                 p = BigUInt.generatePrime(withExactWidth: bitWidthP)
-                let r = BigUInt.gcd(p-1, e)
+                let r = (p-1).greatestCommonDivisor(with: e)
                 if r == 1 {
                     break
                 }
@@ -131,7 +131,7 @@ public class PrivateRSAKey: RSAKey, CustomStringConvertible {
             
             // gcd(q-1,e) == 1
             repeat {
-                let r = BigUInt.gcd(q-1, e)
+                let r = (q-1).greatestCommonDivisor(with: e)
                 if r == 1 {
                     break
                 }

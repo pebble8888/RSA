@@ -72,13 +72,13 @@ public class PublicRSAKey: RSAKey {
         )
         
         let keys = matches.flatMap { result -> PublicRSAKey? in
-            let match = result.rangeAt(1)
+            let match = result.range(at:1)
             let start = pemString.characters.index(pemString.startIndex, offsetBy: match.location)
             let end = pemString.characters.index(start, offsetBy: match.length)
             
             let range = Range<String.Index>(start..<end)
             
-            let thisKey = pemString[range]
+            let thisKey = String(pemString[range])
             
             return try? PublicRSAKey(pemEncoded: thisKey)
         }

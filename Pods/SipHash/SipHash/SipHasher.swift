@@ -3,7 +3,7 @@
 //  SipHash
 //
 //  Created by Károly Lőrentey on 2016-03-08.
-//  Copyright © 2016 Károly Lőrentey.
+//  Copyright © 2016-2017 Károly Lőrentey.
 
 private func rotateLeft(_ value: UInt64, by amount: UInt64) -> UInt64 {
     return (value << amount) | (value >> (64 - amount))
@@ -149,15 +149,11 @@ public struct SipHasher {
         let left = (buffer.count - i) & 7
         let end = (buffer.count - i) - left
         while i < end {
-            let m = UInt64(buffer[i])
-                | (UInt64(buffer[i + 1]) << 8)
-                | (UInt64(buffer[i + 2]) << 16)
-                | (UInt64(buffer[i + 3]) << 24)
-                | (UInt64(buffer[i + 4]) << 32)
-                | (UInt64(buffer[i + 5]) << 40)
-                | (UInt64(buffer[i + 6]) << 48)
-                | (UInt64(buffer[i + 7]) << 56)
-            compressWord(m)
+            var m: UInt64 = 0
+            withUnsafeMutableBytes(of: &m) { p in
+                p.copyBytes(from: .init(rebasing: buffer[i ..< i + 8]))
+            }
+            compressWord(UInt64(littleEndian: m))
             i += 8
         }
 
@@ -196,6 +192,6 @@ public struct SipHasher {
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func finalize() -> Int {
-        return Int(truncatingBitPattern: _finalize())
+        return Int(truncatingIfNeeded: _finalize())
     }
 }
